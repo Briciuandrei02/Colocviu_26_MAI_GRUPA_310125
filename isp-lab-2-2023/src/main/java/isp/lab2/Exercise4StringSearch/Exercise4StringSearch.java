@@ -10,8 +10,19 @@ public class Exercise4StringSearch {
      * @return
      */
     public static String[] searchSubstrings(String input, String substring) {
-        return null;
+        String[] cuvinte = input.split(",");
+        String[] rezultat = new String[cuvinte.length];
+        int count = 0;
+        for(int i=0;i<cuvinte.length;i++) {
+            if(cuvinte[i].contains(substring)) {
+                rezultat[count] = cuvinte[i];
+                count++;
+            }
+        }
+        return rezultat;
     }
+
+
 
     public static String readFromConsoleInt() {
         Scanner scanner = new Scanner(System.in);
@@ -24,7 +35,10 @@ public class Exercise4StringSearch {
         String substring = "te";
         String[] result = searchSubstrings(input, substring);
         for (String string : result) {
-            System.out.println(string);
+            if(string != null) {
+                System.out.println(string);
+            }
         }
     }
 }
+
